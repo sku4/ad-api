@@ -1,0 +1,20 @@
+:root {
+    --tg-theme-secondary-bg-color: #efeff3;
+    --tg-color-scheme: light;
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-hint-color: #999999;
+    --tg-theme-link-color: #2481cc;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-text-color: #000000;
+    --tg-theme-button-color: #2481cc;
+    --tg-viewport-height: 100vh;
+    --tg-viewport-stable-height: 100vh;
+    /*custom*/
+    --tg-theme-button-color-hover: #1e6dad;
+    --tg-theme-link-color-hover: #1e6dad;
+    --transparency-40: 40%;
+    --tg-theme-third-bg-color: color-mix(in srgb, var(--tg-theme-secondary-bg-color)
+                                var(--transparency-40, 100%), transparent);
+    --tg-theme-border-color: color-mix(in srgb, var(--tg-theme-secondary-bg-color), #c7c7c7);
+    --tg-theme-slider-button-color: color-mix(in srgb, var(--tg-theme-bg-color), #ffffff 25%);
+}

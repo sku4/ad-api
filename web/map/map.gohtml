@@ -1,0 +1,124 @@
+{{template "base-map" .}}{{
+define "title-map"}}Карта объявлений по продаже квартир в Минске{{end}}{{
+define "main-map"}}
+    <div class="wrapper">
+        <div class="w-100 h-100">
+            <div class="row bar mx-0">
+                <nav class="navbar navbar-expand-md navbar-light py-md-2 py-1 bg-light">
+                    <div class="container-fluid">
+                        <div class="burger burger-filter d-block d-md-none">
+                            <a class="p-1" type="button">{{template "bi-gear" .}}</a>
+                        </div>
+
+                        <div class="d-md-flex d-none align-items-center flex-nowrap">
+                            <a class="p-0 logo" href="/">
+                                {{template "bi-logo" .}}
+                            </a>
+                        </div>
+
+                        <div class="d-flex align-items-center flex-nowrap">
+                            <div class="p-2">
+                                <div class="lds-ellipsis">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <span class="ad-count" role="alert"></span>
+                            </div>
+                        </div>
+
+                        <div class="burger burger-menu d-block d-md-none ms-1">
+                            <label for="burger-menu-checkbox">
+                                <input type="checkbox" id="burger-menu-checkbox"/>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
+                        </div>
+
+                        <div class="d-none d-md-block">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link telegram" target="_blank"
+                                       href="https://t.me/anNotifierBot">
+                                        {{template "bi-telegram" .}} Подписаться на новые объявления</a>
+                                </li>
+                                {{/*<li class="nav-item">
+                                    <a class="nav-link stat" href="/">
+                                        {{template "bi-info-circle" .}} Статистика</a>
+                                </li>*/}}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row collapse content-menu mx-0">
+                <div class="col-12  d-flex flex-column gx-0">
+                    <a class="nav-link p-3" href="/">
+                        {{template "bi-logo" .}} Главная</a>
+                    <a class="nav-link telegram p-3" target="_blank" href="https://t.me/anNotifierBot">
+                        {{template "bi-telegram" .}} Подписаться на новые объявления</a>
+                    {{/*<a class="nav-link p-3" href="/">
+                        {{template "bi-info-circle" .}} Статистика</a>*/}}
+                </div>
+            </div>
+            <div class="row content flex-nowrap mx-0">
+                <div class="col-md-3 p-0 d-none d-md-block filter">
+                    <div class="container">
+                        <form name="filter">
+                            <button class="d-none" type="submit"></button>
+                            <div class="row g-2 mt-0">
+                                {{if .hasStreet}}
+                                    <div class="col-12">
+                                        <label class="form-label d-none d-sm-block">Адрес</label>
+                                        <label class="form-label d-block d-sm-none">Улица</label>
+                                        <select class="form-control"
+                                                id="street" name="street_id"
+                                                placeholder="Название улицы...">
+                                        </select>
+                                    </div>
+                                {{end}}
+                                {{if .hasHouse}}
+                                    <div class="col-12{{if .hasStreet}} d-block{{end}}">
+                                        <input type="text" class="form-control" name="house_sm"
+                                               value="{{.valHouse}}"
+                                               placeholder="99">
+                                    </div>
+                                {{end}}
+                                {{range .Slider}}
+                                    <div class="col-12">
+                                        <label class="form-label">{{.Label}}</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control slider-from" name="{{.Code}}_from"
+                                                   id="slider-{{.Code}}-from" placeholder="{{.From.Placeholder}}">
+                                            <input type="text" class="form-control slider-to" name="{{.Code}}_to"
+                                                   id="slider-{{.Code}}-to" placeholder="{{.To.Placeholder}}">
+                                        </div>
+                                        <div id="slider-{{.Code}}"></div>
+                                    </div>
+                                {{end}}
+                            </div>
+                            <div class="row mb-3 mt-2">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <a href="#" class="reset pt-2">
+                                        {{template "bi-x" .}} Очистить фильтр {{template "bi-x" .}}
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-9 p-0 col-12 d-flex align-items-center justify-content-center map">
+                    <div id="map"></div>
+                    <div id="progress"><div id="progress-bar"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{end}}{{
+define "init-map"}}
+    <script type="text/javascript">
+        window.App = {{.jsApp}}
+    </script>
+{{end}}

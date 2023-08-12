@@ -1,0 +1,85 @@
+{{template "base-addsub" .}}{{
+define "title-addsub"}}Добавление подписки{{end}}{{
+define "main-addsub"}}
+    <div class="row">
+        <div class="col-md-12 p-md-4 p-3 form-container">
+            {{if .isPrivate}}
+                <h5 class="text-body-emphasis mb-4">Добавление подписки {{template "link-question-addsub" .}}</h5>
+            {{else}}
+                <h4 class="text-body-emphasis mb-4">Добавление подписки {{template "link-question-addsub" .}}</h4>
+            {{end}}
+
+            <div class="alert d-none" role="alert"></div>
+
+            <div class="collapse" id="collapseHelp">
+                <p class="mb-4">
+                    При выборе диапазона можно указывать произвольное значение вручную напрямую в поле для ввода
+                    (даже если оно выходит за рамки диапазона). <br><br>
+                    Также можно указывать только верхнюю либо только нижнюю границу, тогда диапазон будет
+                    считаться «от X» либо «до X». <br><br>
+                    Для выбора улицы начните вводить название.
+                </p>
+            </div>
+
+            <form>
+                <div class="row g-4">
+                    {{if .hasStreet}}
+                        <div class="col-12">
+                            <label class="form-label d-none d-sm-block">Адрес</label>
+                            <label class="form-label d-block d-sm-none">Улица</label>
+                            <div class="input-group">
+                                <select class="form-control"
+                                        id="street" name="street_id" placeholder="Введите название улицы...">
+                                </select>
+                                {{if .hasHouse}}
+                                    <span class="input-group-text d-none d-sm-block">дом</span>
+                                    <input type="text" class="form-control w-25 d-none d-sm-block"
+                                           placeholder="99" name="house" id="house">
+                                {{end}}
+                            </div>
+                        </div>
+                    {{end}}
+                    {{if .hasHouse}}
+                        <div class="col-12{{if .hasStreet}} d-block d-sm-none{{end}}">
+                            <label class="form-label">Дом</label>
+                            <input type="text" class="form-control" name="house_sm" placeholder="99">
+                        </div>
+                    {{end}}
+                    {{range .Slider}}
+                        <div class="col-12">
+                            <label class="form-label">{{.Label}}</label>
+                            <div class="input-group">
+                                <span class="input-group-text slider-from-label">{{.From.Label}}</span>
+                                <input type="text" class="form-control slider-from" name="{{.Code}}_from"
+                                       id="slider-{{.Code}}-from" placeholder="{{.From.Placeholder}}">
+                                <span class="input-group-text slider-to-label">{{.To.Label}}</span>
+                                <input type="text" class="form-control slider-to" name="{{.Code}}_to"
+                                       id="slider-{{.Code}}-to" placeholder="{{.To.Placeholder}}">
+                            </div>
+                            <div id="slider-{{.Code}}"></div>
+                        </div>
+                    {{end}}
+                </div>
+                {{if not .isPrivate}}
+                    <div class="row mt-4">
+                        <div class="col-lg-6 offset-lg-3">
+                            <button class="w-100 btn btn-primary btn-md" disabled="disabled"
+                                    type="submit">Добавить подписку
+                            </button>
+                        </div>
+                    </div>
+                {{end}}
+            </form>
+        </div>
+    </div>
+{{end}}{{
+define "init-addsub"}}
+    <script type="text/javascript">
+        window.App = {{.jsApp}}
+    </script>
+{{end}}{{define "link-question-addsub"
+}}<a data-bs-toggle="collapse" href="#collapseHelp" role="button"
+     aria-expanded="false" aria-controls="collapseHelp">
+    {{template "bi-patch-question" .}}
+</a>{{
+end}}
