@@ -11,8 +11,9 @@ require (
 	github.com/joncalhoun/qson v0.0.0-20200422171543-84433dcd3da0
 	github.com/karlseguin/ccache v2.0.3+incompatible
 	github.com/pkg/errors v0.9.1
+	github.com/prometheus/client_golang v1.16.0
 	github.com/shopspring/decimal v1.3.1
-	github.com/sku4/ad-parser v0.0.0-20230803171600-d5038e6e7c9c
+	github.com/sku4/ad-parser v0.0.0-20230812053710-fefecdbed9b3
 	github.com/spf13/viper v1.16.0
 	github.com/tarantool/go-tarantool/v2 v2.0.0-20230628170032-dbfaab5078b5
 	golang.org/x/text v0.10.0
@@ -30,7 +31,6 @@ require (
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.8 // indirect
-	github.com/prometheus/client_golang v1.16.0 // indirect
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.42.0 // indirect
 	github.com/prometheus/procfs v0.10.1 // indirect
