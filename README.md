@@ -1,9 +1,7 @@
-# Ad-api
+# Service for rest api for map and telegram bot ui
 
-Example environment file ```.env```:
+[![golang version](https://img.shields.io/github/go-mod/go-version/sku4/ad-api?logo=go&style=flat-square)](#)
+[![project version](https://img.shields.io/github/v/tag/sku4/ad-api?color=97ca00&style=flat-square)](#)
 
-```
-HOST_URL=<url>
-TELEGRAM_BOT_TOKEN=<token>
-TELEGRAM_FEEDBACK_CHAT_ID=<chat_id>
-```
+## Run Project
+Go to repo [ad-run](https://github.com/sku4/ad-run) and follow the steps ```Run Project```
