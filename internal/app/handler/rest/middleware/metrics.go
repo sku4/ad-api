@@ -9,7 +9,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-//nolint:gomnd
+//nolint:mnd
 var (
 	InFlightRequests = promauto.NewGauge(prometheus.GaugeOpts{
 		Namespace: "api_rest",

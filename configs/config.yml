@@ -5,8 +5,8 @@ app:
     cache_duration: 15m
 tarantool:
   servers:
-    - "storage.sku:3301"
-    - "replica.sku:3301"
+    - "localhost:3301"
+    - "localhost:3302"
   timeout: 10s
   reconnect_interval: 1s
 features:

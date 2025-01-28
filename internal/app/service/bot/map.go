@@ -342,7 +342,7 @@ func (b *Bot) MapAds(ctx context.Context, groups []*model.AdFilterGroup) ([]*mod
 					bp := *adTnt.Bathroom
 					bathroom = &bp
 				}
-				if adTnt.Photos != nil && len(adTnt.Photos) > 0 {
+				if len(adTnt.Photos) > 0 {
 					p := adTnt.Photos[0]
 					photo = &p
 				}
