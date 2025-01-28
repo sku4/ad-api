@@ -289,7 +289,6 @@ func (b *Bot) MapFilter(ctx context.Context, fields map[string]any) ([]*model.Ad
 	return locs, nil
 }
 
-//nolint:gocyclo
 func (b *Bot) MapAds(ctx context.Context, groups []*model.AdFilterGroup) ([]*model.Ad, error) {
 	log := logger.Get()
 	ads := make([]*model.Ad, 0)
