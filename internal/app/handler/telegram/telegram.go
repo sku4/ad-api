@@ -102,23 +102,24 @@ func (h *Handler) IncomingMessage(ctx context.Context, update tgbotapi.Update) {
 
 		switch inline.Entity {
 		case app.ManageSubsEntity:
-			if inline.Command == app.CommandPage {
+			switch inline.Command {
+			case app.CommandPage:
 				err = h.services.Bot.ManageSubscriptionsPage(ctx,
 					update.CallbackQuery.Message.Chat.ID,
 					update.CallbackQuery.Message.MessageID,
 					inline.Data.(*in.PaginationInline))
-			} else if inline.Command == app.CommandOpen {
+			case app.CommandOpen:
 				err = h.services.Bot.ManageSubscriptionsOpen(ctx,
 					update.CallbackQuery.Message.Chat.ID,
 					update.CallbackQuery.Message.MessageID,
 					inline.Data.(*in.ManageSubInline))
-			} else if inline.Command == app.CommandDelete {
+			case app.CommandDelete:
 				err = h.services.Bot.ManageSubscriptionsDelete(ctx,
 					update.CallbackQuery.Message.Chat.ID,
 					update.CallbackQuery.Message.MessageID,
 					update.CallbackQuery.ID,
 					inline.Data.(*in.ManageSubInline))
-			} else {
+			default:
 				log.Warnf("incoming message: command %s not found", inline.Command)
 				return
 			}

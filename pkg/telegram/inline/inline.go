@@ -37,11 +37,11 @@ func NewInlineExt(entity string, command string, data any) *Inline {
 
 func (i *Inline) Serialize() string {
 	var inline Inlineable
-	switch i.Data.(type) {
+	switch v := i.Data.(type) {
 	case *ManageSubInline:
-		inline = i.Data.(*ManageSubInline)
+		inline = v
 	case *PaginationInline:
-		inline = i.Data.(*PaginationInline)
+		inline = v
 	default:
 		return ""
 	}

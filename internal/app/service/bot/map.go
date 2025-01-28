@@ -289,7 +289,6 @@ func (b *Bot) MapFilter(ctx context.Context, fields map[string]any) ([]*model.Ad
 	return locs, nil
 }
 
-//nolint:gocyclo
 func (b *Bot) MapAds(ctx context.Context, groups []*model.AdFilterGroup) ([]*model.Ad, error) {
 	log := logger.Get()
 	ads := make([]*model.Ad, 0)
@@ -342,7 +341,7 @@ func (b *Bot) MapAds(ctx context.Context, groups []*model.AdFilterGroup) ([]*mod
 					bp := *adTnt.Bathroom
 					bathroom = &bp
 				}
-				if adTnt.Photos != nil && len(adTnt.Photos) > 0 {
+				if len(adTnt.Photos) > 0 {
 					p := adTnt.Photos[0]
 					photo = &p
 				}

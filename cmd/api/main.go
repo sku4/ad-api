@@ -27,7 +27,8 @@ func main() {
 	log := logger.Get()
 	cfg, err := configs.Init()
 	if err != nil {
-		log.Fatalf("error init config: %s", err)
+		log.Errorf("error init config: %s", err)
+		return
 	}
 
 	// init tarantool
@@ -36,7 +37,8 @@ func main() {
 		Reconnect: cfg.Tarantool.ReconnectInterval,
 	})
 	if err != nil {
-		log.Fatalf("error tarantool connection refused: %s", err)
+		log.Errorf("error tarantool connection refused: %s", err)
+		return
 	}
 	defer func() {
 		errs := conn.Close()
@@ -52,12 +54,14 @@ func main() {
 
 	tgClient, tgServer, err := initTelegramBot(cfg)
 	if err != nil {
-		log.Fatalf("error init telegram bot: %s", err)
+		log.Errorf("error init telegram bot: %s", err)
+		return
 	}
 
 	tmpl, err := initTemplates(cfg)
 	if err != nil {
-		log.Fatalf("error init templates: %s", err)
+		log.Errorf("error init templates: %s", err)
+		return
 	}
 
 	repos := repository.NewRepository(conn)
