@@ -18,6 +18,7 @@ import (
 	"github.com/sku4/ad-api/pkg/telegram/bot/client"
 	"github.com/sku4/ad-api/pkg/telegram/bot/server"
 	"github.com/sku4/ad-parser/pkg/logger"
+	"github.com/tarantool/go-tarantool/v2"
 	"github.com/tarantool/go-tarantool/v2/pool"
 )
 
