@@ -3,12 +3,12 @@ entries:
   ad-api:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-06-25T15:25:55.118118+03:00"
+    created: "2025-06-25T17:30:25.48564+03:00"
     description: Service for rest api for map and telegram bot ui
-    digest: 84231bf8c753e8cec1a4ace832fa7618d18fb6106b9ea39d4e675b08734c08da
+    digest: 063a40cd30b58c0f115bd956745f42853f5d6233c5133641beccf97e18d1fcb0
     name: ad-api
     type: application
     urls:
     - https://raw.githubusercontent.com/sku4/ad-api/refs/heads/master/docs/charts/ad-api-1.0.0.tgz
     version: 1.0.0
-generated: "2025-06-25T15:25:55.117228+03:00"
+generated: "2025-06-25T17:30:25.482886+03:00"
