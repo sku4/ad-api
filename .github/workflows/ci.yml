@@ -13,3 +13,4 @@ jobs:
       service: app-api
       prefix: api
       repository: sku4/ad-api
+      manifest: api
